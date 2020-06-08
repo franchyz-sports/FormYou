@@ -1,8 +1,10 @@
 import React from 'react';
+// Pages
+import Home from './pages/Home';
 
 const App = () => {
 	return (
-		<h1>Hello world</h1>
+		<Home />
 	);
 };
 
