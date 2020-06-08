@@ -1,5 +1,6 @@
 import React from 'react';
 // Components
+import CompanyCards from '../components/CompanyCards';
 import FormationCards from '../components/FormationCards';
 import Header from '../components/Header';
 
@@ -18,6 +19,8 @@ const Home = () => {
 							</p>
 							<p className='display-4'>Formations</p>
 							<FormationCards />
+							<p className='display-4'>They trust us</p>
+							<CompanyCards />
 						</div>
 					</div>
 				</div>
