@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // API
 import * as api from '../services/formation_api.js';
+// React Router DOM
+import { Link } from 'react-router-dom';
 
 const FormationCards = () => {
 	const [data, setData] = useState([]);
@@ -19,7 +21,7 @@ const FormationCards = () => {
 							<span className='badge badge-primary mr-1'>#Category</span>
 							<span className='badge badge-primary mr-1'>#Category</span>
 						</p>
-						<button className='btn btn-outline-primary'>Details</button>
+						<Link to='/formation'><button className='btn btn-outline-primary'>Details</button></Link>
 					</div>
 				</div>
 			));
@@ -35,7 +37,7 @@ const FormationCards = () => {
 				{data}
 			</div>
 			<div className='text-center'>
-				<button className='btn btn-primary'>See more</button>
+				<Link to='/formations'><button className='btn btn-primary'>See more</button></Link>
 			</div>
 		</div>
 	);
