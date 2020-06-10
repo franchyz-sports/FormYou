@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // API
-import * as api from '../services/formation_api.js';
+import * as api from '../../services/formation_api.js';
 // React Router DOM
 import { Link } from 'react-router-dom';
 // Moment
@@ -33,7 +33,7 @@ const FormationCards = () => {
 								<span className='badge badge-primary mr-1'>#Category</span>
 								<span className='badge badge-primary mr-1'>#Category</span>
 							</p>
-							<Link to='/formation'><button className='btn btn-outline-primary'>Details</button></Link>
+							<Link to={`/formation/${formation.id}`}><button className='btn btn-outline-primary'>Details</button></Link>
 						</div>
 						<div className='card-footer'>
 							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.updated_at).fromNow()}</small></p>
@@ -56,7 +56,7 @@ const FormationCards = () => {
 								<span className='badge badge-primary mr-1'>#Category</span>
 								<span className='badge badge-primary mr-1'>#Category</span>
 							</p>
-							<Link to='/formation'><button className='btn btn-outline-primary'>Details</button></Link>
+							<Link to={`/formation/${formation.id}`}><button className='btn btn-outline-primary'>Details</button></Link>
 						</div>
 						<div className='card-footer'>
 							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.updated_at).fromNow()}</small></p>
