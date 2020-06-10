@@ -25,6 +25,9 @@ const NavBar = () => {
 					<Nav.Link>
 						<Link to="/">Home</Link>
 					</Nav.Link>
+					<Nav.Link>
+						<Link to="/formations">Formations</Link>
+					</Nav.Link>
 					<NavDropdown title="Connect" id="basic-nav-dropdown">
 						<div>
 							<NavDropdown.Item>
