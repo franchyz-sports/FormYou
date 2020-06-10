@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import CompanyCards from '../../components/CompanyCards';
+import CompanyCards from '../../components/Company/CompanyCards';
 import FormationCards from '../../components/Formation/FormationCards';
 import Header from '../../components/Home/Header';
 

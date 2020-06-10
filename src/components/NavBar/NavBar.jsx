@@ -42,6 +42,9 @@ const NavBar = () => {
 							<NavDropdown.Item>
 								<Link to="/sessions">Sessions</Link>
 							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/companies">They trust us</Link>
+							</NavDropdown.Item>
 						</div>
 					</NavDropdown>
 					<Form.Control
