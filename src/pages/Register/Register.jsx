@@ -34,31 +34,6 @@ const Register = () => {
 				if (err.response) message.error(err.response.data.message, 3);
 				else message.error("Impossible to connnect to API", 3);
 			});
-
-		if (role === "I am a FormYou teacher") {
-			const dataTeacher = {
-				teacher: {
-					email: email,
-					password: password,
-				},
-			};
-
-			fetch("http://localhost:3000/teachers.json", {
-				method: "post",
-				headers: {
-					"Content-Type": "application/json",
-				},
-
-				body: JSON.stringify(dataTeacher),
-			})
-				.then((response) =>
-					response.json().then((json) => ({
-						token: response.headers.get("Authorization").split(" ")[1],
-						...json,
-					}))
-				)
-				.then((response) => console.log(response));
-		}
 	};
 
 	return (
@@ -78,12 +53,7 @@ const Register = () => {
 											<Form>
 												<Form.Group controlId="role">
 													<Form.Label></Form.Label>
-													<Form.Control
-														as="select"
-														custom
-														// onSelect={(e) => setRole(e.target.value)}
-														// value={role}
-													>
+													<Form.Control as="select" custom>
 														<option value="student">I am a FormYou student</option>
 														<option value="teacher">I am a FormYou teacher</option>
 														<option value="admin">I am a FormYou adminstrator</option>

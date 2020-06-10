@@ -41,12 +41,7 @@ const Login = () => {
 											<Form>
 												<Form.Group controlId="role">
 													<Form.Label></Form.Label>
-													<Form.Control
-														as="select"
-														custom
-														// onSelect={(e) => setRole(e.target.value)}
-														// value={role}
-													>
+													<Form.Control as="select" custom>
 														<option value="student">I am a FormYou student</option>
 														<option value="teacher">I am a FormYou teacher</option>
 														<option value="admin">I am a FormYou adminstrator</option>
