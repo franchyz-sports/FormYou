@@ -1,40 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import "../../styles/app.scss";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-// import picture from "../../img/picture.jpg";
-//import { registerUser } from "../Redux/users/usersActions";
+import { registerUser } from "../../redux/actions";
+import { message } from "antd/es";
 
 const Register = () => {
-	//const dispatch = useDispatch();
+	const dispatch = useDispatch();
+
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [passwordConfirm, setPasswordConfirm] = useState("");
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		let email = document.getElementById("email").value;
-		let password = document.getElementById("password").value;
-		let password_confirmation = document.getElementById("password_confirmation")
-			.value;
 		let role = document.getElementById("role").value;
+		// console.log(email);
+		// console.log(password);
+		// console.log(passwordConfirm);
+		// console.log(role);
 
-		let notice_password = "Please enter the same password";
-		if (password !== password_confirmation) {
+		if (password !== passwordConfirm) {
 			document.getElementById("notice_password").innerHTML =
 				"Please enter the same password";
 		}
-		//dispatch(registerUser(email, role, password));
-		console.log(email);
-		console.log(password);
-		console.log(password_confirmation);
-		console.log(role);
+		// dispatch(registerUser(email, password))
+		// 	.then(() => {
+		// 		message.success("You are well registered, you can now login !", 3);
+		// 	})
+		// 	.catch((err) => {
+		// 		if (err.response) message.error(err.response.data.message, 3);
+		// 		else message.error("Impossible to connnect to API", 3);
+		// 	});
 
 		if (role === "I am a FormYou teacher") {
 			const dataTeacher = {
 				teacher: {
 					email: email,
 					password: password,
-					password_confirmation: password_confirmation,
 				},
 			};
 
@@ -54,59 +59,6 @@ const Register = () => {
 				)
 				.then((response) => console.log(response));
 		}
-
-		// 	if (role === "I am a FormYou student") {
-		// 		const dataStudent = {
-		// 			student: {
-		// 				email: email,
-		// 				password: password,
-		// 				password_confirmation: password_confirmation,
-		// 			},
-		// 		};
-
-		// 		fetch("http://localhost:3000/students.json", {
-		// 			method: "post",
-		// 			headers: {
-		// 				"Content-Type": "application/json",
-		// 			},
-
-		// 			body: JSON.stringify(dataStudent),
-		// 		})
-		// 			.then((response) =>
-		// 				response.json().then((json) => ({
-		// 					token: response.headers.get("Authorization").split(" ")[1],
-		// 					...json,
-		// 				}))
-		// 			)
-		// 			.then((response) => console.log(response));
-		// 	}
-
-		// 	if (role === "I am a FormYou administrator") {
-		// 		const dataAdmin = {
-		// 			admins: {
-		// 				email: email,
-		// 				password: password,
-		// 				password_confirmation: password_confirmation,
-		// 			},
-		// 		};
-
-		// 		fetch("http://localhost:3000/admins.json", {
-		// 			method: "post",
-		// 			headers: {
-		// 				"Content-Type": "application/json",
-		// 			},
-
-		// 			body: JSON.stringify(dataAdmin),
-		// 		})
-		// 			.then((response) =>
-		// 				response.json().then((json) => ({
-		// 					token: response.headers.get("Authorization").split(" ")[1],
-		// 					...json,
-		// 				}))
-		// 			)
-		// 			.then((response) => console.log(response));
-		// 	}
-		// };
 	};
 
 	return (
@@ -118,7 +70,7 @@ const Register = () => {
 							<div className="col-lg-10 col-xl-9 mx-auto">
 								<div className="card card-signin flex-row my-5">
 									<div className="card-img-left d-none d-md-flex"></div>
-									<div class="card-body">
+									<div className="card-body">
 										<form onSubmit={onSubmit}>
 											<h2>Start learning and</h2>
 											<h2>create an account</h2>
@@ -126,10 +78,15 @@ const Register = () => {
 											<Form>
 												<Form.Group controlId="role">
 													<Form.Label></Form.Label>
-													<Form.Control as="select" custom>
-														<option>I am a FormYou student</option>
-														<option>I am a FormYou teacher</option>
-														<option>I am a FormYou adminstrator</option>
+													<Form.Control
+														as="select"
+														custom
+														// onSelect={(e) => setRole(e.target.value)}
+														// value={role}
+													>
+														<option value="student">I am a FormYou student</option>
+														<option value="teacher">I am a FormYou teacher</option>
+														<option value="admin">I am a FormYou adminstrator</option>
 													</Form.Control>
 												</Form.Group>
 											</Form>
@@ -141,6 +98,8 @@ const Register = () => {
 													className="form-control"
 													placeholder="Enter email"
 													id="email"
+													onChange={(e) => setEmail(e.target.value)}
+													value={email}
 													required
 												/>
 											</div>
@@ -152,6 +111,8 @@ const Register = () => {
 													className="form-control"
 													placeholder="Enter password"
 													id="password"
+													onChange={(e) => setPassword(e.target.value)}
+													value={password}
 													required
 												/>
 											</div>
@@ -163,6 +124,8 @@ const Register = () => {
 													className="form-control"
 													placeholder="Enter password"
 													id="password_confirmation"
+													onChange={(e) => setPasswordConfirm(e.target.value)}
+													value={passwordConfirm}
 													required
 												/>
 											</div>
