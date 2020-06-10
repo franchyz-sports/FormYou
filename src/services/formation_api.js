@@ -21,5 +21,7 @@ export const getFormation = (id) => {
 		}
 	})
 	.then(response => response.json())
-	.then(response => console.log(response))
+	.then(response => {
+		return response
+	})
 };

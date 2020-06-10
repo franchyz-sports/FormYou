@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // API
 import * as api from '../../services/session_api.js';
-// React Router DOM
-import { Link } from 'react-router-dom';
 // Essential JS 2 React Schedule
 import { Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, MonthAgenda, TimelineViews, TimelineMonth, EventSettingsModel } from '@syncfusion/ej2-react-schedule';
 // Style
