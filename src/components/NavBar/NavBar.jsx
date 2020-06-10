@@ -37,10 +37,10 @@ const NavBar = () => {
 					<NavDropdown title="Discover online courses" id="basic-nav-dropdown">
 						<div>
 							<NavDropdown.Item>
-								<Link to="/login">Formations</Link>
+								<Link to="/formations">Formations</Link>
 							</NavDropdown.Item>
 							<NavDropdown.Item>
-								<Link to="/register">Sessions</Link>
+								<Link to="/sessions">Sessions</Link>
 							</NavDropdown.Item>
 						</div>
 					</NavDropdown>
