@@ -1,0 +1,57 @@
+import React, { useEffect, useState } from 'react';
+// API
+import * as api from '../../services/session_api.js';
+// React Router DOM
+import { Link } from 'react-router-dom';
+// Essential JS 2 React Schedule
+import { Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, MonthAgenda, TimelineViews, TimelineMonth, EventSettingsModel } from '@syncfusion/ej2-react-schedule';
+// Style
+import '../../styles/Schedule.scss';
+
+const SessionSchedule = ({ formation_id }) => {
+	const [data, setData] = useState([]);
+
+	const getData = () => {
+		api.getFormationSessions(formation_id)
+		.then(response => {
+				let sessions = response.map((session) => ({
+					StartTime: new Date (
+						new Date(session.date).getFullYear(),
+						new Date(session.date).getMonth(),
+						new Date(session.date).getDate(),
+						9, 30
+					),
+					EndTime: new Date (
+						new Date(session.date).getFullYear(),
+						new Date(session.date).getMonth(),
+						new Date(session.date).getDate(),
+						17, 30
+					)
+				}));
+			setData(sessions);
+		});
+	};
+
+	const dataSource: EventSettingsModel = {
+		dataSource: data
+	};
+
+	useEffect(getData, []);
+
+	return (
+		<div>
+			<ScheduleComponent currentView='Month' eventSettings = {dataSource}>
+				<Inject services={[Day, Week, WorkWeek, Month, Agenda, MonthAgenda, TimelineViews, TimelineMonth ]} />
+			</ScheduleComponent>
+		</div>
+	);
+};
+
+export default SessionSchedule;
+
+// id, max_student, formation_id, creator_id, created_at, updated_at
+
+
+
+
+

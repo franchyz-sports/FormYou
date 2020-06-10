@@ -12,6 +12,7 @@ import FormationShow from './pages/Formation/FormationShow';
 import Home from './pages/Home/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import SessionIndex from './pages/Session/SessionIndex';
 
 const App = () => {
 	return (
@@ -24,6 +25,7 @@ const App = () => {
 					<Route path={`/formation/:formation_id`} component={FormationShow} />
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/register' component={Register} />
+					<Route exact path='/sessions' component={SessionIndex} />
 				</Switch>
 			</Router>
 		</Provider>

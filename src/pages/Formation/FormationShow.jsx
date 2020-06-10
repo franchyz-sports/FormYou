@@ -4,7 +4,7 @@ import * as api from '../../services/formation_api.js';
 // React Router DOM
 import { useParams } from 'react-router-dom';
 // Components
-import Schedule from '../../components/Schedule';
+import SessionSchedule from '../../components/Session/SessionSchedule';
 
 const FormationShow = () => {
 	const { formation_id } = useParams();
@@ -27,7 +27,9 @@ const FormationShow = () => {
 							Category1 <span className='badge badge-light'>4</span>
 						</button>
 						<p className='display-4 mt-3'>Next sessions</p>
-						<Schedule />
+						<SessionSchedule
+							formation_id={formation_id}
+						/>
 					</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@ export const getFormation = (id) => {
 		id: id
 	};
 
-	return fetch(`http://localhost:3000/formations/${data}`, {
+	return fetch(`http://localhost:3000/formations/${data.id}`, {
 		headers: {
 			'Content-Type': 'application/json'
 		}
