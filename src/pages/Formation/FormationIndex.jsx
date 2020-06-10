@@ -1,14 +1,15 @@
 import React from 'react';
 // Components
-import Schedule from '../components/Schedule';
+import FormationCards from '../../components/Formation/FormationCards';
 
-const FormationShow = () => {
+const FormationIndex = () => {
 	return (
 		<section className='mt-5'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 mx-auto'>
-						<Schedule />
+						<p className='display-3'>Formations</p>
+						<FormationCards />
 					</div>
 				</div>
 			</div>
@@ -16,5 +17,4 @@ const FormationShow = () => {
 	);
 };
 
-export default FormationShow;
-
+export default FormationIndex;

@@ -1,30 +1,60 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-// import Cookies from "js-cookie";
-// import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-// import { useSelector, useDispatch  } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, NavDropdown, Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+//import { logoutUser } from "../../redux/actions";
+import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
-	// return (
-	// 	<div className="topnav">
-	// 		<Link to="/">Home</Link>
-	// 		<Link to="/register">Register</Link>
-	// 		<Link to="/login">Login</Link>
-	// 	</div>
-	// );
+	const [keyword, setKeyword] = useState("");
+	//const data = useSelector((store) => store.authReducers);
+	//const dispatch = useDispatch();
+	const history = useHistory();
+
+	// useEffect(() => {
+	// 	if (data.token === "") history.push("/login");
+	// }, [data, history]);
+
+	console.log(keyword);
+	let current_user = "Otto";
+	let current_user_url = "/login";
+
+	const disconnect = () => {
+		//dispatch(logoutUser());
+		Cookies.remove("token");
+		history.push("/login");
+	};
 
 	return (
 		<Navbar bg="light" expand="lg">
 			<Link to="/">
-				<Navbar.Brand>TacosWillFormYou</Navbar.Brand>
+				<Navbar.Brand href="/">TacosWillFormYou</Navbar.Brand>
 			</Link>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">
-					<Nav.Link>
-						<Link to="/">Home</Link>
-					</Nav.Link>
+					<NavDropdown title="Discover online courses" id="basic-nav-dropdown">
+						<div>
+							<NavDropdown.Item>
+								<Link to="/formations">Formations</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/sessions">Sessions</Link>
+							</NavDropdown.Item>
+						</div>
+					</NavDropdown>
+					<Form.Control
+						className="mr-10"
+						placeholder="Search formation"
+						onChange={(e) => setKeyword(e.target.value)}
+					/>
+				</Nav>
+
+				<Nav>
+					<Navbar.Text>
+						Signed in as: <a href={current_user_url}>{current_user}</a>
+					</Navbar.Text>
 					<NavDropdown title="Connect" id="basic-nav-dropdown">
 						<div>
 							<NavDropdown.Item>
@@ -33,9 +63,15 @@ const NavBar = () => {
 							<NavDropdown.Item>
 								<Link to="/register">Register</Link>
 							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/register">Profile</Link>
+							</NavDropdown.Item>
 						</div>
 					</NavDropdown>
 				</Nav>
+				<Button onClick={disconnect} className="ml-2" variant="outline-danger">
+					Logout
+				</Button>
 			</Navbar.Collapse>
 		</Navbar>
 	);
