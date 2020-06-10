@@ -18,15 +18,3 @@ const SessionIndex = () => {
 };
 
 export default SessionIndex;
-
-
-
-  // create_table "sessions", force: :cascade do |t|
-  //   t.integer "max_student"
-  //   t.date "date"
-  //   t.bigint "formation_id"
-  //   t.bigint "creator_id"
-  //   t.datetime "created_at", precision: 6, null: false
-  //   t.datetime "updated_at", precision: 6, null: false
-  //   t.index ["creator_id"], name: "index_sessions_on_creator_id"
-  //   t.index ["formation_id"], name: "index_sessions_on_formation_id"

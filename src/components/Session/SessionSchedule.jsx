@@ -46,10 +46,3 @@ const SessionSchedule = ({ formation_id }) => {
 };
 
 export default SessionSchedule;
-
-// id, max_student, formation_id, creator_id, created_at, updated_at
-
-
-
-
-
