@@ -17,9 +17,9 @@ const Home = () => {
 								<a href='https://startbootstrap.com'> Start Bootstrap</a>
 								.
 							</p>
-							<p className='display-4'>Formations</p>
+							<p className='display-4 mt-3'>Formations</p>
 							<FormationCards />
-							<p className='display-4'>They trust us</p>
+							<p className='display-4 mt-3'>They trust us</p>
 							<CompanyCards />
 						</div>
 					</div>
