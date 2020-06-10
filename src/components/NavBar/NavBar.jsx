@@ -1,30 +1,79 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, NavDropdown, Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+//import { logoutUser } from "../../redux/actions";
+import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 
-const Navbar = () => { 
+const NavBar = () => {
+	const [keyword, setKeyword] = useState("");
+	//const data = useSelector((store) => store.authReducers);
+	//const dispatch = useDispatch();
+	const history = useHistory();
+
+	// useEffect(() => {
+	// 	if (data.token === "") history.push("/login");
+	// }, [data, history]);
+
+	console.log(keyword);
+	let current_user = "Otto";
+	let current_user_url = "/login";
+
+	const disconnect = () => {
+		//dispatch(logoutUser());
+		Cookies.remove("token");
+		history.push("/login");
+	};
+
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
-			<Link className='navbar-brand' to='/'>TacosWillFormYou</Link>
-			<button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-				<span className='navbar-toggler-icon'></span>
-			</button>
-			<div className='collapse navbar-collapse' id='navbarSupportedContent'>
-				<ul className='navbar-nav mr-auto'>
-					<li className='nav-item active'>
-						<Link className='nav-link' to='/formations'>Formations</Link>
-					</li>
-					<li className='nav-item dropdown'>
-						<Link className='nav-link dropdown-toggle' to='/works' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Connect</Link>
-						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
-							<Link className='nav-link' to='/login'>Login</Link>
-							<div className='dropdown-divider'></div>
-							<Link className='nav-link' to='/register'>Register</Link>
+		<Navbar bg="light" expand="lg">
+			<Link to="/">
+				<Navbar.Brand href="/">TacosWillFormYou</Navbar.Brand>
+			</Link>
+			<Navbar.Toggle aria-controls="basic-navbar-nav" />
+			<Navbar.Collapse id="basic-navbar-nav">
+				<Nav className="mr-auto">
+					<NavDropdown title="Discover online courses" id="basic-nav-dropdown">
+						<div>
+							<NavDropdown.Item>
+								<Link to="/formations">Formations</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/sessions">Sessions</Link>
+							</NavDropdown.Item>
 						</div>
-					</li>
-				</ul>
-			</div>
-		</nav>
+					</NavDropdown>
+					<Form.Control
+						className="mr-10"
+						placeholder="Search formation"
+						onChange={(e) => setKeyword(e.target.value)}
+					/>
+				</Nav>
+
+				<Nav>
+					<Navbar.Text>
+						Signed in as: <a href={current_user_url}>{current_user}</a>
+					</Navbar.Text>
+					<NavDropdown title="Connect" id="basic-nav-dropdown">
+						<div>
+							<NavDropdown.Item>
+								<Link to="/login">Login</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/register">Register</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/register">Profile</Link>
+							</NavDropdown.Item>
+						</div>
+					</NavDropdown>
+				</Nav>
+				<Button onClick={disconnect} className="ml-2" variant="outline-danger">
+					Logout
+				</Button>
+			</Navbar.Collapse>
+		</Navbar>
 	);
 };
-
-export default Navbar;
+export default NavBar;
