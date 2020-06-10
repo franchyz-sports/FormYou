@@ -26,14 +26,14 @@ const Register = () => {
 			document.getElementById("notice_password").innerHTML =
 				"Please enter the same password";
 		}
-		// dispatch(registerUser(email, password))
-		// 	.then(() => {
-		// 		message.success("You are well registered, you can now login !", 3);
-		// 	})
-		// 	.catch((err) => {
-		// 		if (err.response) message.error(err.response.data.message, 3);
-		// 		else message.error("Impossible to connnect to API", 3);
-		// 	});
+		dispatch(registerUser(email, password))
+			.then(() => {
+				message.success("You are well registered, you can now login !", 3);
+			})
+			.catch((err) => {
+				if (err.response) message.error(err.response.data.message, 3);
+				else message.error("Impossible to connnect to API", 3);
+			});
 
 		if (role === "I am a FormYou teacher") {
 			const dataTeacher = {
