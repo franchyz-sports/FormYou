@@ -21,7 +21,7 @@ export default handleActions(
 		}),
 		[`${LOGIN_USER}_${FAILED}`]: (state) => ({
 			...state,
-			error: "Connexion failed",
+			error: "Connection failed",
 		}),
 		[`${REGISTER_USER}_${SUCCEEDED}`]: (state, { payload }) => ({
 			...state,
@@ -30,7 +30,7 @@ export default handleActions(
 		}),
 		[`${REGISTER_USER}_${FAILED}`]: (state) => ({
 			...state,
-			error: "Connexion failed",
+			error: "Connection failed",
 		}),
 		[`${LOGOUT_USER}_${SUCCEEDED}`]: () => initialState,
 	},

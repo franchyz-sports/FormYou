@@ -10,7 +10,7 @@ export const loginUser = createActionThunk(
 	LOGIN_USER,
 	async (email, password) => {
 		const param = {
-			user: {
+			student: {
 				email,
 				password,
 			},
@@ -24,7 +24,7 @@ export const registerUser = createActionThunk(
 	REGISTER_USER,
 	async (email, password) => {
 		const param = {
-			user: {
+			student: {
 				email,
 				password,
 			},

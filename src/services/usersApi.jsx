@@ -21,7 +21,7 @@ export default class ApiManager {
 	}
 
 	static async loginUser(param) {
-		const res = await API.post("/teachers/sign_in.json", param);
+		const res = await API.post("/students/sign_in.json", param);
 		return {
 			...res.data,
 			token: res.headers.authorization,
@@ -29,7 +29,7 @@ export default class ApiManager {
 	}
 
 	static async logoutUser() {
-		const res = await API.delete("/teachers/sign_out.json");
+		const res = await API.delete("/students/sign_out.json");
 		return res;
 	}
 }
