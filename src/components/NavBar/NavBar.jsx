@@ -1,19 +1,29 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {
-	Navbar,
-	Nav,
-	NavDropdown,
-	Button,
-	Form,
-	FormControl,
-	Col,
-	Row,
-} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, NavDropdown, Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+//import { logoutUser } from "../../redux/actions";
+import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
+	const [keyword, setKeyword] = useState("");
+	//const data = useSelector((store) => store.authReducers);
+	//const dispatch = useDispatch();
+	const history = useHistory();
+
+	// useEffect(() => {
+	// 	if (data.token === "") history.push("/login");
+	// }, [data, history]);
+
+	console.log(keyword);
+	let current_user = "Otto";
+	let current_user_url = "/login";
+
 	const disconnect = () => {
-		console.log("logout");
+		//dispatch(logoutUser());
+		Cookies.remove("token");
+		history.push("/login");
 	};
 
 	return (
@@ -34,16 +44,16 @@ const NavBar = () => {
 							</NavDropdown.Item>
 						</div>
 					</NavDropdown>
-					{/* <Button className="ml-2" variant="outline-success">
-						For companies
-					</Button> */}
-
-					<Form.Control className="mr-10" placeholder="Search formation" />
+					<Form.Control
+						className="mr-10"
+						placeholder="Search formation"
+						onChange={(e) => setKeyword(e.target.value)}
+					/>
 				</Nav>
 
 				<Nav>
 					<Navbar.Text>
-						Signed in as: <a href="#login">Mark Otto</a>
+						Signed in as: <a href={current_user_url}>{current_user}</a>
 					</Navbar.Text>
 					<NavDropdown title="Connect" id="basic-nav-dropdown">
 						<div>
