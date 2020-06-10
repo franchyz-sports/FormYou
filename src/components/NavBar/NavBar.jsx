@@ -33,6 +33,9 @@ const NavBar = () => {
 							<NavDropdown.Item>
 								<Link to="/register">Register</Link>
 							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/profile">Profile</Link>
+							</NavDropdown.Item>
 						</div>
 					</NavDropdown>
 				</Nav>
