@@ -15,6 +15,8 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import SessionIndex from './pages/Session/SessionIndex';
+import TeacherIndex from './pages/Teacher/TeacherIndex';
+import TeacherShow from './pages/Teacher/TeacherShow';
 
 const App = () => {
 	return (
@@ -30,6 +32,8 @@ const App = () => {
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/register' component={Register} />
 					<Route exact path='/sessions' component={SessionIndex} />
+					<Route exact path='/teachers' component={TeacherIndex} />
+					<Route exact path='/teacher' component={TeacherShow} />
 				</Switch>
 			</Router>
 		</Provider>
