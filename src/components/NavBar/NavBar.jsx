@@ -1,19 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-// import Cookies from "js-cookie";
-// import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-// import { useSelector, useDispatch  } from "react-redux";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 const NavBar = () => {
-	// return (
-	// 	<div className="topnav">
-	// 		<Link to="/">Home</Link>
-	// 		<Link to="/register">Register</Link>
-	// 		<Link to="/login">Login</Link>
-	// 	</div>
-	// );
-
 	return (
 		<Navbar bg="light" expand="lg">
 			<Link to="/">
