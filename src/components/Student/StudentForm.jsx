@@ -22,36 +22,36 @@ const StudentForm = () => {
 				</div>
 				<div className='form-group col-md-5'>
 					<label>First name</label>
-					<input id='first_name' type='text' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'First name'`} />
+					<input id='first_name' type='text' className='form-control' placeholder={''} />
 				</div>
 				<div className='form-group col-md-5'>
 					<label>Last name</label>
-					<input id='last_name' type='text' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'Last name'`} />
+					<input id='last_name' type='text' className='form-control' placeholder={''} />
 				</div>
 			</div>
 			<div className='form-row'>
 				<div className='form-group col-md-3'>
 					<label>Birthdate</label>
-					<input id='birthdate' type='date' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'Last name'`} />
+					<input id='birthdate' type='date' className='form-control' placeholder={''} />
 				</div>
 				<div className='form-group col-md-9'>
 					<label>Email</label>
-					<input id='email' type='email' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'First name'`} />
+					<input id='email' type='email' className='form-control' placeholder={''} />
 				</div>
 			</div>
 			<div className='form-row'>
 				<div className='form-group col-md-6'>
 					<label>Password</label>
-					<input id='password' type='text' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'Last name'`} />
+					<input id='password' type='text' className='form-control' placeholder={''} />
 				</div>
 				<div className='form-group col-md-6'>
 					<label>Password Confirmation</label>
-					<input id='password_confirmation' type='text' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'Last name'`} />
+					<input id='password_confirmation' type='text' className='form-control' placeholder={''} />
 				</div>
 			</div>
 			<div className='form-group'>
 				<label>Address</label>
-				<input id= 'address' type='text' className='form-control' placeholder='1234 Main St' />
+				<input id= 'address' type='text' className='form-control' placeholder={''} />
 			</div>
 			<div className='form-row'>
 				<div className='form-group col-md-6'>
@@ -71,19 +71,19 @@ const StudentForm = () => {
 							<option value='list of companies'>Index Companies...</option>
 						</select>
 					</div>
-					<div className='form-group col-md-5'>
+					<div className='form-group col-md-6'>
 						<label>Studies</label>
-						<input id='studies' type='text' className='form-control' placeholder={`(profile.username != null) ? profile.username : 'First name'`} />
+						<input id='studies' type='text' className='form-control' placeholder={''} />
 				</div>
 			</div>
 			<div className='form-row'>
 				<div className='form-group col-md-6'>
 					<label>Last profile update :</label>
-					<p className='form-control'>{`moment(profile.updated_at).calendar()`}</p>
+					<p className='form-control'>{''}</p>
 				</div>
 				<div className='form-group col-md-6'>
 					<label>Member since :</label>
-					<p className='form-control'>{`moment(profile.created_at).calendar()`}</p>
+					<p className='form-control'>{''}</p>
 				</div>
 			</div>
 			<button className='btn btn-primary mr-3' type='submit'>Confirm changes</button>

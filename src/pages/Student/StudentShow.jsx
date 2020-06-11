@@ -1,6 +1,7 @@
 import React from 'react';
 // Components
-import StudentForm from '../../components/Student/StudentForm';
+import SessionStudent from '../../components/Session/SessionStudent';
+// import StudentForm from '../../components/Student/StudentForm';
 
 const StudentShow = () => {
 	return (
@@ -8,11 +9,7 @@ const StudentShow = () => {
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 mx-auto'>
-						<p className='display-3'>Hello + Student FirstName !</p>
-						<p className='display-4'>Your Profile</p>
-						<StudentForm />
 						<p className='display-4 mt-3'>Your Sessions</p>
-						
 
 					</div>
 				</div>
@@ -22,3 +19,7 @@ const StudentShow = () => {
 };
 
 export default StudentShow;
+
+//						<p className='display-3'>Hello + Student FirstName !</p>
+//						<p className='display-4'>Your Profile</p>
+//						<StudentForm />

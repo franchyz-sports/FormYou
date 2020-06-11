@@ -1,14 +1,20 @@
 import React from 'react';
 // React Router DOM
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// Redux
+import { useSelector } from 'react-redux';
 // Cookies
 import Cookies from 'js-cookie';
 
-const AutBtn = ({ signedIn, currentUser }) => {
+const AutBtn = () => {
+	const signedIn = useSelector(state => state.authReducer.isAuth);
+	const currentUser = useSelector(state => state.authReducer.id);
+	console.log(`signedIn? ${signedIn}`);
+	console.log(`currentUser? ${currentUser}`);
+
 	const disconnect = () => {
-		//dispatch(logoutUser());
 		Cookies.remove('token');
-		// history.push('/login');
+		console.log('bye')
 	};
 
 	if (signedIn === true) {

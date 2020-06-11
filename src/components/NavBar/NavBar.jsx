@@ -11,8 +11,6 @@ import AutBtn from './AutBtn';
 
 const NavBar = () => {
 	const [keyword, setKeyword] = useState("");
-	const [signedIn, setSignedIn] = useState(false);
-	const [currentUser, setCurrentUser] = useState('Otto');
 
 	// const data = useSelector((store) => store.authReducers);
 	// const dispatch = useDispatch();
@@ -56,10 +54,7 @@ const NavBar = () => {
 					<input className='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search' onChange={(e) => setKeyword(e.target.value)} />
 					<button className='btn btn-outline-success my-2 my-sm-0 mr-2' type='submit'>Search</button>
 				</form>
-				<AutBtn
-					signedIn={signedIn}
-					currentUser={currentUser}
-				/>
+				<AutBtn />
 			</div>
 		</nav>
 	);
