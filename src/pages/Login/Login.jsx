@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { loginUser } from "../../redux/actions";
+import { loginSuccess } from "redux/actions/authActions.jsx";
 import { message } from "antd/es";
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
 		// console.log(email);
 		// console.log(password);
 
-		dispatch(loginUser(email, password))
+		dispatch(loginSuccess(email, password))
 			.then(() => {
 				message.success("You are well registered, you can now login !", 3);
 			})

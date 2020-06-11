@@ -1,40 +1,35 @@
 import { createActionThunk } from "redux-thunk-actions";
-import {
-	LOGIN_USER,
-	REGISTER_USER,
-	LOGOUT_USER,
-} from "../reducers/authReducers";
-import APIManager from "../../services/usersApi";
+import {LOGIN_SUCCESS, LOGIN_REQUEST, LOGIN_FAILURE, LOGOUT_SUCCESS } from '../types/authTypes.jsx'
 
-export const loginUser = createActionThunk(
-	LOGIN_USER,
-	async (email, password) => {
-		const param = {
-			student: {
-				email,
-				password,
-			},
-		};
-		const res = await APIManager.loginUser(param);
-		return res;
-	}
-);
+function loginRequest(){
+  return {
+    type: LOGIN_REQUEST,
+  }
+}
 
-export const registerUser = createActionThunk(
-	REGISTER_USER,
-	async (email, password) => {
-		const param = {
-			student: {
-				email,
-				password,
-			},
-		};
-		const res = await APIManager.registerUser(param);
-		return res;
-	}
-);
+function loginSuccess(id, firstName, lastName, email, typeUser){
+  return {
+    type: LOGIN_SUCCESS,
+    id: id,
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    typeUser: typeUser
+  }
+}
 
-export const logoutUser = createActionThunk(LOGOUT_USER, async () => {
-	const res = await APIManager.logoutUser();
-	return res;
-});
+function loginFailure(error){
+  return {
+    type: LOGIN_FAILURE,
+    error: error
+  }
+}
+
+function logoutSuccess(){
+  return {
+    type: LOGOUT_SUCCESS,
+  }
+
+}
+
+export {loginRequest, loginSuccess , loginFailure, logoutSuccess}
