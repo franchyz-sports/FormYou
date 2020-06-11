@@ -15,6 +15,8 @@ const FormationShow = () => {
 		.then(response => setData(response.formation))
 	};
 
+	// console.log(data);
+
 	useEffect(getData, []);
 
 	return (

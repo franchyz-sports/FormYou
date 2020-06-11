@@ -22,18 +22,19 @@ const FormationCards = () => {
 		if (showMore === false) {
 			api.getAllFormations()
 			.then(response => {
+				// console.log(response);
 				let formations = response.sort((a,b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).map((formation, key) => (
 					<div className='card' key={key}>
 						<div className='card-body'>
-							<h5 className='card-title'>{formation.title}</h5>
-							<p className='card-text'>Teacher (+ link to Teacher Profile)</p>
-							<p className='card-text'>{formation.description}</p>
+							<h5 className='card-title'>{formation.formation.title}</h5>
+							<p className='card-text'>{formation.formation.teacher.first_name} {formation.formation.teacher.last_name}</p>
+							<p className='card-text'>{formation.formation.description}</p>
 							<p className='card-text'>
 								<span className='badge badge-primary mr-1'>#Category</span>
 								<span className='badge badge-primary mr-1'>#Category</span>
 								<span className='badge badge-primary mr-1'>#Category</span>
 							</p>
-							<Link to={`/formation/${formation.id}`}><button className='btn btn-outline-primary'>Details</button></Link>
+							<Link to={`/formation/${key + 1}`}><button className='btn btn-outline-primary'>Details</button></Link>
 						</div>
 						<div className='card-footer'>
 							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.updated_at).fromNow()}</small></p>
@@ -48,15 +49,15 @@ const FormationCards = () => {
 				let formations = response.sort((a,b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).map((formation, key) => (
 					<div className='card' key={key}>
 						<div className='card-body'>
-							<h5 className='card-title'>{formation.title}</h5>
-							<p className='card-text'>Teacher (+ link to Teacher Profile)</p>
-							<p className='card-text'>{formation.description}</p>
+							<h5 className='card-title'>{formation.formation.title}</h5>
+							<p className='card-text'>{formation.formation.teacher.first_name} {formation.formation.teacher.last_name}</p>
+							<p className='card-text'>{formation.formation.description}</p>
 							<p className='card-text'>
 								<span className='badge badge-primary mr-1'>#Category</span>
 								<span className='badge badge-primary mr-1'>#Category</span>
 								<span className='badge badge-primary mr-1'>#Category</span>
 							</p>
-							<Link to={`/formation/${formation.id}`}><button className='btn btn-outline-primary'>Details</button></Link>
+							<Link to={`/formation/${key + 1}`}><button className='btn btn-outline-primary'>Details</button></Link>
 						</div>
 						<div className='card-footer'>
 							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.updated_at).fromNow()}</small></p>

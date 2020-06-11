@@ -9,10 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import AutBtn from './AutBtn';
 
 
-const Navbar = () => {
+const NavBar = () => {
 	const [keyword, setKeyword] = useState("");
-	const [signedIn, setSignedIn] = useState(false);
-	const [currentUser, setCurrentUser] = useState('Otto');
 
 	// const data = useSelector((store) => store.authReducers);
 	// const dispatch = useDispatch();
@@ -48,6 +46,7 @@ const Navbar = () => {
 						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
 							<Link className='nav-link' to='/sessions'>Sessions</Link>
 							<Link className='nav-link' to='/teacher'>Teacher Profile</Link>
+							<Link className='nav-link' to='/student'>Student Profile</Link>
 						</div>
 					</li>
 				</ul>
@@ -55,13 +54,10 @@ const Navbar = () => {
 					<input className='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search' onChange={(e) => setKeyword(e.target.value)} />
 					<button className='btn btn-outline-success my-2 my-sm-0 mr-2' type='submit'>Search</button>
 				</form>
-				<AutBtn
-					signedIn={signedIn}
-					currentUser={currentUser}
-				/>
+				<AutBtn />
 			</div>
 		</nav>
 	);
 };
 
-export default Navbar;
+export default NavBar;
