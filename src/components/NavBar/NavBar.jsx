@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AutBtn from './AutBtn';
 
 
-const Navbar = () => {
+const NavBar = () => {
 	const [keyword, setKeyword] = useState("");
 	const [signedIn, setSignedIn] = useState(false);
 	const [currentUser, setCurrentUser] = useState('Otto');
@@ -64,4 +64,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default NavBar;
