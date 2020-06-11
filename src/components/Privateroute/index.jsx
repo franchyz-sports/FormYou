@@ -5,8 +5,6 @@ import Cookies from "js-cookie";
 const PrivateRoute = ({ component: Component, ...rest }) => {
 	const history = useHistory();
 
-	// useEffect blabla fetch fetch
-
 	return (
 		<Route
 			{...rest}
