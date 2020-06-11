@@ -1,79 +1,67 @@
-import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { Navbar, Nav, NavDropdown, Button, Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-//import { logoutUser } from "../../redux/actions";
-import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+// React Router DOM
+import { Link, useHistory } from 'react-router-dom';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+// Cookies
+// import Cookies from 'js-cookie';
+// Components
+import AutBtn from './AutBtn';
 
-const NavBar = () => {
+
+const Navbar = () => {
 	const [keyword, setKeyword] = useState("");
-	//const data = useSelector((store) => store.authReducers);
-	//const dispatch = useDispatch();
-	const history = useHistory();
+	const [signedIn, setSignedIn] = useState(false);
+	const [currentUser, setCurrentUser] = useState('Otto');
+
+	// const data = useSelector((store) => store.authReducers);
+	// const dispatch = useDispatch();
+	// const history = useHistory();
 
 	// useEffect(() => {
-	// 	if (data.token === "") history.push("/login");
+	// 	if (data.token === null) history.push("/login");
 	// }, [data, history]);
 
-	console.log(keyword);
-	let current_user = "Otto";
-	let current_user_url = "/login";
-
-	const disconnect = () => {
-		//dispatch(logoutUser());
-		Cookies.remove("token");
-		history.push("/login");
-	};
-
 	return (
-		<Navbar bg="light" expand="lg">
-			<Link to="/">
-				<Navbar.Brand href="/">TacosWillFormYou</Navbar.Brand>
-			</Link>
-			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav className="mr-auto">
-					<NavDropdown title="Discover online courses" id="basic-nav-dropdown">
-						<div>
-							<NavDropdown.Item>
-								<Link to="/formations">Formations</Link>
-							</NavDropdown.Item>
-							<NavDropdown.Item>
-								<Link to="/sessions">Sessions</Link>
-							</NavDropdown.Item>
+		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
+			<Link className='navbar-brand' to='/'>TacosWillFormYou</Link>
+			<button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+				<span className='navbar-toggler-icon'></span>
+			</button>
+			<div className='collapse navbar-collapse' id='navbarSupportedContent'>
+				<ul className='navbar-nav mr-auto'>
+					<li className='nav-item dropdown'>
+						<Link className='nav-link dropdown-toggle' to='/formations' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Discover online courses</Link>
+						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
+							<Link className='nav-link' to='/formations'>Formations</Link>
+							<Link className='nav-link' to='/teachers'>Our teachers</Link>
 						</div>
-					</NavDropdown>
-					<Form.Control
-						className="mr-10"
-						placeholder="Search formation"
-						onChange={(e) => setKeyword(e.target.value)}
-					/>
-				</Nav>
-
-				<Nav>
-					<Navbar.Text>
-						Signed in as: <a href={current_user_url}>{current_user}</a>
-					</Navbar.Text>
-					<NavDropdown title="Connect" id="basic-nav-dropdown">
-						<div>
-							<NavDropdown.Item>
-								<Link to="/login">Login</Link>
-							</NavDropdown.Item>
-							<NavDropdown.Item>
-								<Link to="/register">Register</Link>
-							</NavDropdown.Item>
-							<NavDropdown.Item>
-								<Link to="/register">Profile</Link>
-							</NavDropdown.Item>
+					</li>
+					<li className='nav-item dropdown'>
+						<Link className='nav-link dropdown-toggle' to='/formations' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>About us</Link>
+						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
+							<Link className='nav-link' to='/companies'>They trust us</Link>
 						</div>
-					</NavDropdown>
-				</Nav>
-				<Button onClick={disconnect} className="ml-2" variant="outline-danger">
-					Logout
-				</Button>
-			</Navbar.Collapse>
-		</Navbar>
+					</li>
+					<li className='nav-item dropdown'>
+						<Link className='nav-link dropdown-toggle' to='/' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Test</Link>
+						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
+							<Link className='nav-link' to='/sessions'>Sessions</Link>
+							<Link className='nav-link' to='/teacher'>Teacher Profile</Link>
+						</div>
+					</li>
+				</ul>
+				<form className='form-inline my-2 my-lg-0'>
+					<input className='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search' onChange={(e) => setKeyword(e.target.value)} />
+					<button className='btn btn-outline-success my-2 my-sm-0 mr-2' type='submit'>Search</button>
+				</form>
+				<AutBtn
+					signedIn={signedIn}
+					currentUser={currentUser}
+				/>
+			</div>
+		</nav>
 	);
 };
-export default NavBar;
+
+export default Navbar;
