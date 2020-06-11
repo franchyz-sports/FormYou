@@ -1,7 +1,8 @@
-import axios from "axios";
-import Cookies from "js-cookie";
+//import axios from "axios";
+//import Cookies from "js-cookie";
 
-const API = axios.create({
+
+/*const API = axios.create({
 	baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
@@ -19,7 +20,6 @@ export default class ApiManager {
 		const res = await API.post("/students.json", param);
 		return res.data;
 	}
-
 	static async loginUser(param) {
 		const res = await API.post("/students/sign_in.json", param);
 		return {
@@ -33,3 +33,53 @@ export default class ApiManager {
 		return res;
 	}
 }
+*/
+
+import Cookies from 'js-cookie'
+import jwt_decode from 'jwt-decode'
+
+function signUp(email, password, type) {
+  const data = {
+    email: email,
+    password: password,
+  };
+
+  let baseURL = process.env.REACT_APP_BACKEND_URL
+  let endUrl = `/${type}s.json`
+  let url = baseURL + endUrl
+  return fetch(url, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => { return response })
+
+}
+
+function signIn(email, password, type) {
+  const data = {[type]: 
+    {
+      email: email,
+      password: password,
+    }
+  };
+
+  let baseURL = process.env.REACT_APP_BACKEND_URL
+  let endUrl = `/${type}s/sign_in.json`
+  let url = baseURL + endUrl
+  let ans
+
+  return fetch(url, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => { return response })
+}
+
+export {signIn, signUp}
+

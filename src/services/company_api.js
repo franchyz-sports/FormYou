@@ -1,6 +1,5 @@
-export const getAllFormations = () => {
-
-	return fetch('http://localhost:3000/formations.json', {
+export const getAllCompanies = () => {
+	return fetch('http://localhost:3000/companies.json', {
 		headers: {
 			'Content-Type': 'application/json'
 		}
@@ -11,12 +10,12 @@ export const getAllFormations = () => {
 	})
 };
 
-export const getFormation = (id) => {
+export const getCompany = (id) => {
 	const data = {
 		id: id
 	};
 
-	return fetch(`http://localhost:3000/formations/${data.id}`, {
+	return fetch(`http://localhost:3000/companies/${data.id}`, {
 		headers: {
 			'Content-Type': 'application/json'
 		}
