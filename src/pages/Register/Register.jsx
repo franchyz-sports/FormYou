@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "../../styles/app.scss";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import { registerUser } from "../../redux/actions";
+//import { registerUser } from "../../redux/actions";
 import { message } from "antd/es";
 
 const Register = () => {
@@ -13,8 +13,11 @@ const Register = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [passwordConfirm, setPasswordConfirm] = useState("");
-
+  
 	const onSubmit = (e) => {
+  }
+
+/*	const onSubmit = (e) => {
 		e.preventDefault();
 		let role = document.getElementById("role").value;
 		// console.log(email);
@@ -34,7 +37,7 @@ const Register = () => {
 				if (err.response) message.error(err.response.data.message, 3);
 				else message.error("Impossible to connnect to API", 3);
 			});
-	};
+  };*/
 
 	return (
 		<>

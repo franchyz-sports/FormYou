@@ -1,28 +1,25 @@
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { loginUser } from "../../redux/actions";
 import { message } from "antd/es";
 
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { login } from 'redux/middlewares/login'
+import {useSelector, useDispatch} from 'react-redux'
+import { Redirect } from 'react-router-dom'
+
 const Login = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+
 	const dispatch = useDispatch();
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		// console.log(email);
-		// console.log(password);
 
-		dispatch(loginUser(email, password))
-			.then(() => {
-				message.success("You are well registered, you can now login !", 3);
-			})
-			.catch((err) => {
-				if (err.response) message.error(err.response.data.message, 3);
-				else message.error("Impossible to connnect to API", 3);
-			});
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+    let type = document.getElementById('role').value
+
+    dispatch(login(email, password, type))
+
 	};
 
 	return (
@@ -56,8 +53,6 @@ const Login = () => {
 													className="form-control"
 													placeholder="Enter email"
 													id="email"
-													onChange={(e) => setEmail(e.target.value)}
-													value={email}
 													required
 												/>
 											</div>
@@ -69,8 +64,6 @@ const Login = () => {
 													className="form-control"
 													placeholder="Enter password"
 													id="password"
-													onChange={(e) => setPassword(e.target.value)}
-													value={password}
 													required
 												/>
 											</div>
