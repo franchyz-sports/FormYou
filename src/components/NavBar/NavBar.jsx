@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, NavDropdown, Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,20 +27,14 @@ const NavBar = () => {
 
 	return (
 		<Navbar bg="light" expand="lg">
-			<Link to="/">
-				<Navbar.Brand href="/">TacosWillFormYou</Navbar.Brand>
-			</Link>
+			<Navbar.Brand href="/">TacosWillFormYou</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">
 					<NavDropdown title="Discover online courses" id="basic-nav-dropdown">
 						<div>
-							<NavDropdown.Item>
-								<Link to="/formations">Formations</Link>
-							</NavDropdown.Item>
-							<NavDropdown.Item>
-								<Link to="/sessions">Sessions</Link>
-							</NavDropdown.Item>
+							<NavDropdown.Item href="/formations">Formations</NavDropdown.Item>
+							<NavDropdown.Item href="/sessions">Sessions</NavDropdown.Item>
 						</div>
 					</NavDropdown>
 					<Form.Control
@@ -57,15 +50,9 @@ const NavBar = () => {
 					</Navbar.Text>
 					<NavDropdown title="Connect" id="basic-nav-dropdown">
 						<div>
-							<NavDropdown.Item>
-								<Link to="/login">Login</Link>
-							</NavDropdown.Item>
-							<NavDropdown.Item>
-								<Link to="/register">Register</Link>
-							</NavDropdown.Item>
-							<NavDropdown.Item>
-								<Link to="/profile">Profile</Link>
-							</NavDropdown.Item>
+							<NavDropdown.Item href="/login">Login</NavDropdown.Item>
+							<NavDropdown.Item href="/register">Register</NavDropdown.Item>
+							<NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
 						</div>
 					</NavDropdown>
 				</Nav>
