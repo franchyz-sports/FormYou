@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux';
 // Components
-import Navbar from './components/NavBar/Navbar';
+import Navbar from './components/NavBar/NavBar';
 // Pages
 import CompanyIndex from './pages/Company/CompanyIndex';
 import CompanyShow from './pages/Company/CompanyShow';
