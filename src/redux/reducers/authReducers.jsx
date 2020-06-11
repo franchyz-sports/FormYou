@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode'
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from '../types/authTypes'
 
 console.log(Cookies.get('token'), 'yoloo', (Cookies.get('token') == undefined))
-let tmp1, tmp2
+/*let tmp1, tmp2
 if (Cookies.get('token') != undefined ) {
   console.log(Cookies.get('token'))
   tmp1 = jwt_decode(Cookies.get('token')).id
@@ -11,15 +11,30 @@ if (Cookies.get('token') != undefined ) {
 } else {
   tmp1 = null
   tmp2 = null
-} 
+} */
+let tempo
 
-const initialState = {
-  loading: false,
-  isAuth: Cookies.get('token') ? true : false,
-  id: tmp1,
-  username: tmp2,
-  error: ''
+if (!Cookies.get('token')){
+  tempo = {
+    loading: false,
+    isAuth: false,
+    id: null,
+    typeUser: '',
+    error: ''
+  }
 }
+else{
+  tempo = {
+    loading: false,
+    isAuth: true,
+    id: jwt_decode(Cookies.get('token'))['sub'],
+    typeUser: jwt_decode(Cookies.get('token'))['scp']
+  } 
+}
+
+
+
+const initialState = tempo
 
 const authReducer = (state = initialState, action) => {
   switch(action.type){
@@ -29,13 +44,12 @@ const authReducer = (state = initialState, action) => {
         loading: true,
       } 
     case LOGIN_SUCCESS:
-        console.log('deokjj')
       return {
         ...state,
         isAuth: true,
         loading: false,
         id: action.id,
-        username: action.username
+        typeUser: action.typeUser,
       }
     case LOGIN_FAILURE:
       return {

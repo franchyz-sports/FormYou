@@ -54,20 +54,22 @@ function signUp(email, password, type) {
     },
     body: JSON.stringify(data)
   })
-    .then(response => response.json())
     .then(response => { return response })
 
 }
 
-function signIn(identifier, password, type) {
-  const data = {
-    identifier: identifier,
-    password: password,
+function signIn(email, password, type) {
+  const data = {[type]: 
+    {
+      email: email,
+      password: password,
+    }
   };
 
   let baseURL = process.env.REACT_APP_BACKEND_URL
   let endUrl = `/${type}s/sign_in.json`
   let url = baseURL + endUrl
+  let ans
 
   return fetch(url, {
     method: 'post',
@@ -76,8 +78,7 @@ function signIn(identifier, password, type) {
     },
     body: JSON.stringify(data)
   })
-    .then(response => response.json())
-    .then(response => {return response})
+    .then(response => { return response })
 }
 
 export {signIn, signUp}

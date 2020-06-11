@@ -9,13 +9,13 @@ const login = (email, password, type) => {
     let promise = API.signIn(email, password, type)
     
     promise.then((response) => {
+      console.log(response)
       if (response.error !== undefined) {
         dispatch(loginFailure(response.message))
       } else {
-        Cookies.set('token', response.headers.Authorization, {sameSite: 'lax'})
-        let decoded_token = jwt_decode(response.headers.Authorization)
-        dispatch(loginSuccess(decoded_token.id, decoded_token.email, decoded_token.type))
-        window.location.pathname = '/'
+        Cookies.set('token', response.headers.get('Authorization'), {sameSite: 'lax'})
+        let decoded_token = jwt_decode(response.headers.get('Authorization'))
+        dispatch(loginSuccess(decoded_token['sub'], decoded_token['scp']))
       }
     })
   }

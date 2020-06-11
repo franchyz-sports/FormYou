@@ -7,13 +7,10 @@ function loginRequest(){
   }
 }
 
-function loginSuccess(id, firstName, lastName, email, typeUser){
+function loginSuccess(id, typeUser){
   return {
     type: LOGIN_SUCCESS,
     id: id,
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
     typeUser: typeUser
   }
 }
