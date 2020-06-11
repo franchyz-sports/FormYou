@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // API
 import * as api from '../../services/formation_api.js';
 // React Router DOM
 import { useParams } from 'react-router-dom';
 // Components
-import Schedule from '../../components/Schedule';
+import SessionSchedule from '../../components/Session/SessionSchedule';
 
 const FormationShow = () => {
 	const { formation_id } = useParams();
+	const [data, setData] = useState([]);
 
 	const getData = () => {
 		api.getFormation(formation_id)
+		.then(response => setData(response.formation))
 	};
 
 	useEffect(getData, []);
@@ -20,14 +22,16 @@ const FormationShow = () => {
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 mx-auto'>
-						<p className='display-3'>Formation Title</p>
+						<p className='display-3'>{data.title}</p>
 						<p>Formation given by (Teacher + link to profile)</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices nulla at lacus efficitur elementum. Nunc lacinia vulputate mollis. Proin faucibus, ipsum eget mattis facilisis, ex ipsum ornare erat, ac ullamcorper erat quam et arcu. Duis sit amet nunc interdum, iaculis lacus eget, pharetra purus. Nullam ultricies justo odio, id viverra eros venenatis et. Integer et eros est. Maecenas tincidunt dictum pharetra. Suspendisse id augue vitae metus dapibus pretium. (Formation Description)</p>
+						<p>{data.description}</p>
 						<button type='button' className='btn btn-primary'>
 							Category1 <span className='badge badge-light'>4</span>
 						</button>
 						<p className='display-4 mt-3'>Next sessions</p>
-						<Schedule />
+						<SessionSchedule
+							formation_id={formation_id}
+						/>
 					</div>
 				</div>
 			</div>
