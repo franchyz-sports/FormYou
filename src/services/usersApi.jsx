@@ -38,13 +38,16 @@ export default class ApiManager {
 import Cookies from 'js-cookie'
 import jwt_decode from 'jwt-decode'
 
-function signUp(email, password) {
+function signUp(email, password, type) {
   const data = {
     email: email,
     password: password,
   };
 
-  return fetch('https://api-minireseausocial.mathis-dyk.fr/auth/local/register', {
+  let baseURL = process.env.REACT_APP_BACKEND_URL
+  let endUrl = `/${type}s.json`
+  let url = baseURL + endUrl
+  return fetch(url, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'
@@ -56,13 +59,17 @@ function signUp(email, password) {
 
 }
 
-function signIn(identifier, password) {
+function signIn(identifier, password, type) {
   const data = {
     identifier: identifier,
     password: password,
   };
 
-  return fetch('https://api-minireseausocial.mathis-dyk.fr/auth/local/', {
+  let baseURL = process.env.REACT_APP_BACKEND_URL
+  let endUrl = `/${type}s/sign_in.json`
+  let url = baseURL + endUrl
+
+  return fetch(url, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'
@@ -72,4 +79,6 @@ function signIn(identifier, password) {
     .then(response => response.json())
     .then(response => {return response})
 }
+
+export {signIn, signUp}
 
