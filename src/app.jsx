@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux';
 // Components
-import NavBar from './components/NavBar';
+import Navbar from './components/NavBar/Navbar';
 // Pages
 import CompanyIndex from './pages/Company/CompanyIndex';
 import CompanyShow from './pages/Company/CompanyShow';
@@ -22,7 +22,7 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<Router>
-				<NavBar />
+				<Navbar />
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route exact path='/companies' component={CompanyIndex} />
