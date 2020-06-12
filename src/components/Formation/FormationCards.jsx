@@ -37,7 +37,7 @@ const FormationCards = () => {
 							<Link to={`/formation/${key + 1}`}><button className='btn btn-outline-primary'>Details</button></Link>
 						</div>
 						<div className='card-footer'>
-							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.updated_at).fromNow()}</small></p>
+							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.formation.updated_at).fromNow()}</small></p>
 						</div>
 					</div>
 				));
@@ -60,7 +60,7 @@ const FormationCards = () => {
 							<Link to={`/formation/${key + 1}`}><button className='btn btn-outline-primary'>Details</button></Link>
 						</div>
 						<div className='card-footer'>
-							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.updated_at).fromNow()}</small></p>
+							<p className='card-text'><small className='text-muted'>Last updated {moment(formation.formation.updated_at).fromNow()}</small></p>
 						</div>
 					</div>
 				));

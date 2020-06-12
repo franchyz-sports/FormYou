@@ -12,7 +12,7 @@ const CompanyShow = () => {
 		api.getCompany(company_id)
 		.then(response => setData(response))
 	};
-
+	
 	useEffect(getData, []);
 
 	return (
