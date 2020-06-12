@@ -12,21 +12,22 @@ const SessionSchedule = ({ formation_id }) => {
 	const getData = () => {
 		api.getFormationSessions(formation_id)
 		.then(response => {
-				let sessions = response.map((session) => ({
-					StartTime: new Date (
-						new Date(session.date).getFullYear(),
-						new Date(session.date).getMonth(),
-						new Date(session.date).getDate(),
-						9, 30
-					),
-					EndTime: new Date (
-						new Date(session.date).getFullYear(),
-						new Date(session.date).getMonth(),
-						new Date(session.date).getDate(),
-						17, 30
-					)
-				}));
-			setData(sessions);
+			// 	let sessions = response.map((session) => ({
+			// 		StartTime: new Date (
+			// 			new Date(session.date).getFullYear(),
+			// 			new Date(session.date).getMonth(),
+			// 			new Date(session.date).getDate(),
+			// 			9, 30
+			// 		),
+			// 		EndTime: new Date (
+			// 			new Date(session.date).getFullYear(),
+			// 			new Date(session.date).getMonth(),
+			// 			new Date(session.date).getDate(),
+			// 			17, 30
+			// 		)
+			// 	}));
+			// setData(sessions);
+			console.log(response)
 		});
 	};
 
