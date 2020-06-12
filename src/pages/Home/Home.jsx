@@ -1,9 +1,8 @@
 import React from 'react';
 // Components
-import CompanyCards from '../../components/Company/CompanyCards';
+// import CompanyCards from '../../components/Company/CompanyCards';
 import FormationCards from '../../components/Formation/FormationCards';
 import Header from '../../components/Home/Header';
-import TeacherCards from '../../components/Teacher/TeacherCards';
 
 const Home = () => {
 	return (
@@ -20,10 +19,6 @@ const Home = () => {
 							</p>
 							<p className='display-4 mt-3'>Formations</p>
 							<FormationCards />
-							<p className='display-4 mt-3'>Our teachers</p>
-							<TeacherCards />
-							<p className='display-4 mt-3'>They trust us</p>
-							<CompanyCards />
 						</div>
 					</div>
 				</div>

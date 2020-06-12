@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import SessionStudent from '../../components/Session/SessionStudent';
+import SessionUser from '../../components/Session/SessionUser';
 // import StudentForm from '../../components/Student/StudentForm';
 
 const StudentShow = () => {
@@ -10,7 +10,7 @@ const StudentShow = () => {
 				<div className='row'>
 					<div className='col-md-12 mx-auto'>
 						<p className='display-4 mt-3'>Your Sessions</p>
-
+						<SessionUser />
 					</div>
 				</div>
 			</div>
