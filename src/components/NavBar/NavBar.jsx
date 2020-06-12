@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // React Router DOM
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 // Cookies
 // import Cookies from 'js-cookie';
 // Components
 import AutBtn from './AutBtn';
 
 
-const Navbar = () => {
-	const [keyword, setKeyword] = useState("");
-	const [signedIn, setSignedIn] = useState(false);
-	const [currentUser, setCurrentUser] = useState('Otto');
+const NavBar = () => {
+	const [setKeyword] = useState("");
 
 	// const data = useSelector((store) => store.authReducers);
 	// const dispatch = useDispatch();
@@ -34,20 +32,6 @@ const Navbar = () => {
 						<Link className='nav-link dropdown-toggle' to='/formations' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Discover online courses</Link>
 						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
 							<Link className='nav-link' to='/formations'>Formations</Link>
-							<Link className='nav-link' to='/teachers'>Our teachers</Link>
-						</div>
-					</li>
-					<li className='nav-item dropdown'>
-						<Link className='nav-link dropdown-toggle' to='/formations' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>About us</Link>
-						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
-							<Link className='nav-link' to='/companies'>They trust us</Link>
-						</div>
-					</li>
-					<li className='nav-item dropdown'>
-						<Link className='nav-link dropdown-toggle' to='/' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Test</Link>
-						<div className='dropdown-menu' aria-labelledby='navbarDropdown'>
-							<Link className='nav-link' to='/sessions'>Sessions</Link>
-							<Link className='nav-link' to='/teacher'>Teacher Profile</Link>
 						</div>
 					</li>
 				</ul>
@@ -55,13 +39,10 @@ const Navbar = () => {
 					<input className='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search' onChange={(e) => setKeyword(e.target.value)} />
 					<button className='btn btn-outline-success my-2 my-sm-0 mr-2' type='submit'>Search</button>
 				</form>
-				<AutBtn
-					signedIn={signedIn}
-					currentUser={currentUser}
-				/>
+				<AutBtn />
 			</div>
 		</nav>
 	);
 };
 
-export default Navbar;
+export default NavBar;

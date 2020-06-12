@@ -14,7 +14,7 @@ if (Cookies.get('token') != undefined ) {
 } */
 let tempo
 
-if (!Cookies.get('token')){
+if (Cookies.get('token') == undefined){
   tempo = {
     loading: false,
     isAuth: false,

@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 export const getAllFormations = () => {
 
 	return fetch('http://localhost:3000/formations.json', {
@@ -26,3 +28,18 @@ export const getFormation = (id) => {
 		return response
 	})
 };
+
+export const getMyFormations = () => {
+
+	return fetch('http://localhost:3000//myformations.json', {
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': Cookies.get('token')
+		}
+	})
+	.then(response => response.json())
+	.then(response => {
+		return response
+	})
+};
+
