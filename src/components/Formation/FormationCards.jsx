@@ -27,7 +27,7 @@ const FormationCards = () => {
 					<div className='card' key={key}>
 						<div className='card-body'>
 							<h5 className='card-title'>{formation.formation.title}</h5>
-							<p className='card-text'>{formation.formation.teacher.first_name} {formation.formation.teacher.last_name}</p>
+							<p className='card-text'>{formation.formation.title} {formation.formation.title}</p>
 							<p className='card-text'>{formation.formation.description}</p>
 							<p className='card-text'>
 								<span className='badge badge-primary mr-1'>#Category</span>
@@ -50,7 +50,7 @@ const FormationCards = () => {
 					<div className='card' key={key}>
 						<div className='card-body'>
 							<h5 className='card-title'>{formation.formation.title}</h5>
-							<p className='card-text'>{formation.formation.teacher.first_name} {formation.formation.teacher.last_name}</p>
+							<p className='card-text'>{formation.formation.title} {formation.formation.title}</p>
 							<p className='card-text'>{formation.formation.description}</p>
 							<p className='card-text'>
 								<span className='badge badge-primary mr-1'>#Category</span>
