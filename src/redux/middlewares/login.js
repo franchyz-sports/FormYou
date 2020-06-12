@@ -16,6 +16,7 @@ const login = (email, password, type) => {
         Cookies.set('token', response.headers.get('Authorization'), {sameSite: 'lax'})
         let decoded_token = jwt_decode(response.headers.get('Authorization'))
         dispatch(loginSuccess(decoded_token['sub'], decoded_token['scp']))
+        window.location.pathname = '/'
       }
     })
   }
